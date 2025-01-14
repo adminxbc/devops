@@ -10,7 +10,6 @@ public class TestController {
 
     @GetMapping("/test")
     public Object test(){
-        System.out.println("hello private jenkins ..........");
-        return "hello  test ............ ";
+        return "hello  test port 8866............ ";
     }
 }
