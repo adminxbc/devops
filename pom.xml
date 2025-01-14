@@ -43,6 +43,7 @@
     </dependencies>
 
     <build>
+        <finalName>test.jar</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

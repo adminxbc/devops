@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  devops:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: test:v1.0.0
+    container_name: devops
+#    privileged: true
+#    restart: always
+    ports:
+      # web访问端口
+      - "8081:8080"
+
+
+
+
+    #5b36cc8fbdc64f06aa08495d22c43b53
