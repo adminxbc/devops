@@ -10,7 +10,7 @@ public class TestController {
 
     @GetMapping("/test")
     public Object test(){
-        System.out.println("hello test jenkins");
+        System.out.println("hello private jenkins ..........");
         return "hello  test ............ ";
     }
 }
