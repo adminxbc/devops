@@ -10,6 +10,6 @@ public class TestController {
 
     @GetMapping("/test")
     public Object test(){
-        return "hello  test port 8866...........tag v1.0 ";
+        return "hello  test port 8866...........tag v1.6 ";
     }
 }
