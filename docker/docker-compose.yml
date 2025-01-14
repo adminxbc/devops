@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: test:v1.6
+    image: test:v1.7
     container_name: devops
 #    privileged: true
 #    restart: always

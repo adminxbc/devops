@@ -14,6 +14,6 @@ public class TestController {
     @GetMapping("/test")
     public Object test(){
         System.out.println("test");
-        return "hello  test port 8866...........tag v1.6 ";
+        return "hello  test port 8866...........tag v1.7 ";
     }
 }
