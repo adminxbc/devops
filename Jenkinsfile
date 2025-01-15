@@ -5,7 +5,7 @@ pipeline {
         harborUser = 'admin'
         harborPasswd = 'Harbor12345'
         harborAddress = '192.168.1.133:80'
-        harborRepo = 'repo"
+        harborRepo = 'repo'
     }
 
     stages {
