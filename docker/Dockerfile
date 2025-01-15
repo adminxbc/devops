@@ -5,6 +5,6 @@ FROM openjdk:23
 # 将工作目录设置为/app
 WORKDIR /usr/local
 # 将本地代码复制到工作目录内
-COPY ./*.jar  /usr/local/test.jar
+COPY ./*.jar  /usr/local/devops.jar
 # 设置容器启动时运行的命令
-CMD ["java", "-jar", "test.jar"]
+CMD ["java", "-jar", "devops.jar"]
