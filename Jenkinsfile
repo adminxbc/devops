@@ -30,21 +30,22 @@ pipeline {
         stage('自定义 docker 镜像') {
             steps {
                 sh '''mv target/*.jar ./docker/
-                docker build -t ${JOB_NAME}:v1.6  ./docker/'''
+                docker build -t ${JOB_NAME}:${tag}  ./docker/'''
             }
         }
 
         stage('自定义镜像上传harbor仓库') {
             steps {
                 sh '''docker login -u ${harborUser} -p ${harborPasswd} ${harborAddress}
-                docker tag ${JOB_NAME}:v1.6  ${harborAddress}/${harborRepo}/${JOB_NAME}:v1.6 
-                docker push ${harborAddress}/${harborRepo}/${JOB_NAME}:v1.6 '''
+                docker tag ${JOB_NAME}:${tag}  ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag} 
+                docker push ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag} '''
             }
         }
 
         stage('publish over ssh通知服务器拉取脚本文件') {
             steps {
-                echo 'ssh通知服务器拉取脚本文件成功'
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'test', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 
+"deploy.sh  $harborPasswd $harborRepo $JOB_NAME ${tag} $host_port $container_prot", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
 
