@@ -26,7 +26,8 @@ pipeline {
 
         stage('自定义镜像上传harbor仓库') {
             steps {
-                echo '上传harbor仓库成功'
+                sh '''mv target/*.jar ./docker/
+                docker build -t ${JOB_NAME}:v1.6  ./docker/'''
             }
         }
 
