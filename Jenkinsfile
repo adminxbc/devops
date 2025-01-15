@@ -14,7 +14,7 @@ pipeline {
 
         stage('maven打包') {
             steps {
-                sh '/var/jenkins_home/maven/bin/mvn clean package  -DskipTests  '
+               sh '/var/jenkins_home/maven/bin/mvn clean package  -DskipTests'
             }
         }
 
