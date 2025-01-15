@@ -37,7 +37,7 @@ pipeline {
         stage('自定义镜像上传harbor仓库') {
             steps {
                 sh '''docker login -u ${harborUser} -p ${harborPasswd} ${harborAddress}
-                docker tag ${JOB_NAME}:v1.6  ${harborPasswd}/${harborRepo}/{JOB_NAME}:v1.6 
+                docker tag ${JOB_NAME}:v1.6  ${harborPasswd}/${harborRepo}/${JOB_NAME}:v1.6 
                 docker push ${harborAddress}/${harborRepo/${JOB_NAME}:v1.6 '''
             }
         }
